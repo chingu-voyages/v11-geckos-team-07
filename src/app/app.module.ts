@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RealTimeRateExchangeComponent } from './real-time-rate-exchange/real-time-rate-exchange.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RealTimeRateExchangeComponent
+    RealTimeRateExchangeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
