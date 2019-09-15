@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RealTimeRateExchangeComponent } from './real-time-rate-exchange/real-time-rate-exchange.component';
 import { FooterComponent } from './footer/footer.component';
+import { SpecificDateRateExchangeComponent } from './specific-date-rate-exchange/specific-date-rate-exchange.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     RealTimeRateExchangeComponent,
-    FooterComponent
+    FooterComponent,
+    SpecificDateRateExchangeComponent
   ],
   imports: [
     BrowserModule,
