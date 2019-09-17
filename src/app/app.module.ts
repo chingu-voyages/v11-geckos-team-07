@@ -17,7 +17,7 @@ import { HomeComponent } from './home/home.component';
     RealTimeRateExchangeComponent,
     FooterComponent,
     SpecificDateRateExchangeComponent,
-    HomeComponent 
+    HomeComponent
   ],
   imports: [
     BrowserModule,
