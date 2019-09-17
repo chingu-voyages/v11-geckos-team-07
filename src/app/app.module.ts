@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { RealTimeRateExchangeComponent } from './real-time-rate-exchange/real-time-rate-exchange.component';
 import { FooterComponent } from './footer/footer.component';
 import { SpecificDateRateExchangeComponent } from './specific-date-rate-exchange/specific-date-rate-exchange.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SpecificDateRateExchangeComponent } from './specific-date-rate-exchange
     HeaderComponent,
     RealTimeRateExchangeComponent,
     FooterComponent,
-    SpecificDateRateExchangeComponent
+    SpecificDateRateExchangeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
