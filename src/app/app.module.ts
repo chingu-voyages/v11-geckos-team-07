@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SpecificDateRateExchangeComponent } from './specific-date-rate-exchange/specific-date-rate-exchange.component';
 import { HomeComponent } from './home/home.component';
 import { TeamComponent } from './team/team.component';
+import { DropdownCurrencyComponent } from './dropdown-currency/dropdown-currency.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TeamComponent } from './team/team.component';
     FooterComponent,
     SpecificDateRateExchangeComponent,
     HomeComponent,
-    TeamComponent
+    TeamComponent,
+    DropdownCurrencyComponent
   ],
   imports: [
     BrowserModule,
