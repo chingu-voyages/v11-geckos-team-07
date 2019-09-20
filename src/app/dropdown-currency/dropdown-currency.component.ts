@@ -6,13 +6,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./dropdown-currency.component.css"]
 })
 export class DropdownCurrencyComponent implements OnInit {
-  currency: string = "Choose";
   currencies: string[] = ["EUR", "USA", "CZK"]; //In future it will get currencies from api
   constructor() {}
 
   ngOnInit() {}
 
   selectCurrency(currency: string) {
-    this.currency = currency;
+    console.log(currency);
   }
 }

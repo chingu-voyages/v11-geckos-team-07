@@ -1,10 +1,4 @@
-<div class="btn-group mr-3">
-  <button type="button" class="btn btn-primary">{{currency}}</button>
-  <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-    <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
-    <div class="dropdown-menu" ngbDropdownMenu>
-      <button *ngFor="let currency of currencies" (click)="selectCurrency(currency)"
-        ngbDropdownItem>{{currency}}</button>
-    </div>
-  </div>
-</div>
+<select (change)="selectCurrency($event.target.value)" class="btn btn-primary" name="list" id="list">
+  <option selected disabled hidden>Choose</option>
+  <option *ngFor="let currency of currencies" value={{currency}}>{{currency}}</option>
+</select>
