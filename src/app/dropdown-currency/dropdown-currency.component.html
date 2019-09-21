@@ -1,4 +1,0 @@
-<select (change)="selectCurrency($event.target.value)" class="btn btn-primary" name="list" id="list">
-  <option selected disabled hidden>Choose</option>
-  <option *ngFor="let currency of currencies" value={{currency}}>{{currency}}</option>
-</select>

@@ -1,0 +1,38 @@
+.box {
+  display: grid;
+  grid-template-columns: repeat(7, 5 vw);
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". . . . . . ."
+    "amount inpu drop1 . . . drop2"
+    ". . . . . . ."
+    ". . . . . . ."
+    ". . . . . . .";
+  margin: auto;
+  grid-column-gap: 5px;
+  align-items: center;
+  height: 200px;
+  width: 35vw;
+}
+
+.amount {
+  justify-self: end;
+  grid-area: amount;
+  height: 3.6vh;
+}
+
+.inpu {
+  justify-self: start;
+  grid-area: inpu;
+  max-width: 7vw;
+}
+
+.drop1 {
+  justify-self: start;
+  grid-area: drop1;
+}
+
+.drop2 {
+  justify-self: start;
+  grid-area: drop2;
+}
