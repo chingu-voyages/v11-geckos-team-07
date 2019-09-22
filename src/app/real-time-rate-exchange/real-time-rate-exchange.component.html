@@ -1,17 +1,47 @@
 <p class="text-center mt-5">Exchange Rate in real time</p>
-<div class="box border rounded-pill border-danger">
-  <span class="amount">Amount : </span>
-  <input class="inpu form-control" type="number">
-  <div class="drop1">
-    <select (change)="selectCurrency($event.target.value)" class="btn btn-primary" name="list" id="list">
-      <option selected disabled hidden></option>
-      <option *ngFor="let currency of currencies" value={{currency}}>{{currency}}</option>
-    </select>
-  </div>
-  <div class="drop2">
-    <select (change)="selectCurrency($event.target.value)" class="btn btn-primary" name="list" id="list">
-      <option selected disabled hidden></option>
-      <option *ngFor="let currency of currencies" value={{currency}}>{{currency}}</option>
-    </select>
+<div class="row justify-content-center">
+  <div class="col-md-8 ">
+    <div class="box">
+      <div class="row">
+        <div class="col-sm-5 justify-content-center">
+          <div class="drop">
+            <select (change)="selectCurrency($event.target.value)" class="btn btn-outline-primary form-control" name="list"
+              id="list">
+              <option *ngFor="let currency of currencies" value={{currency}}>{{currency}}</option>
+            </select>
+          </div>
+          <span class="amount">Amount : </span>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">EUR</span>
+            </div>
+            <input class="form-control">
+          </div>
+        </div>
+        <div class="switch col-sm-2 justify-content-center">
+          <button class="btn btn-primary">Switch</button>
+        </div>
+        <div class="col-sm-5 justify-content-center">
+          <div class="drop">
+            <select (change)="selectCurrency($event.target.value)" class="btn btn-outline-primary form-control" name="list"
+              id="list">
+              <option *ngFor="let currency of currencies" value={{currency}}>{{currency}}</option>
+            </select>
+          </div>
+          <span class="amount">Result : </span>
+          <div class="input-group ">
+            <div class="input-group-prepend">
+              <span class="input-group-text">EUR</span>
+            </div>
+            <input class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="convert col justify-content-center">
+          <button class="btn btn-primary">Convert</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
