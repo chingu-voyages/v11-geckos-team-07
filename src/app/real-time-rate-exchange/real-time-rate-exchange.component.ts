@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { RateExchangeService } from "../services/rate-exchange.service";
 
 @Component({
   selector: "app-real-time-rate-exchange",
@@ -6,10 +7,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./real-time-rate-exchange.component.css"]
 })
 export class RealTimeRateExchangeComponent implements OnInit {
-  currencies: string[] = ["EUR", "USA", "CZK"]; //In future it will get currencies from api
-  constructor() {}
+  currencies: string[];
+  constructor(private rateExchangeService: RateExchangeService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.rateExchangeService.getAvailableCurrencies().subscribe(data => {
+      this.currencies = data;
+    });
+  }
 
   selectCurrency(currency: string) {
     console.log(currency);

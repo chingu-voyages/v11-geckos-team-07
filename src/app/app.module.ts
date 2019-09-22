@@ -10,6 +10,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { SpecificDateRateExchangeComponent } from "./specific-date-rate-exchange/specific-date-rate-exchange.component";
 import { HomeComponent } from "./home/home.component";
 import { TeamComponent } from "./team/team.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { TeamComponent } from "./team/team.component";
     HomeComponent,
     TeamComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
