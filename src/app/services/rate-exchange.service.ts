@@ -21,4 +21,13 @@ export class RateExchangeService {
       })
     );
   }
+
+  getExchangeRate(base: string, symbols: string): Observable<any> {
+    const params = new HttpParams().set("base", base).set("symbols", symbols);
+    return this.http.get<any>(`${this.url}latest`, { params }).pipe(
+      map(data => {
+        return data.rates[symbols];
+      })
+    );
+  }
 }

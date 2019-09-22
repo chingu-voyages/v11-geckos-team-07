@@ -14,6 +14,10 @@ export class RealTimeRateExchangeComponent implements OnInit {
     this.rateExchangeService.getAvailableCurrencies().subscribe(data => {
       this.currencies = data;
     });
+
+    this.rateExchangeService.getExchangeRate("USD", "GBP").subscribe(data => {
+      console.log(data);
+    });
   }
 
   selectCurrency(currency: string) {
