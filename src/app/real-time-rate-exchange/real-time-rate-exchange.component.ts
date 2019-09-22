@@ -12,11 +12,11 @@ export class RealTimeRateExchangeComponent implements OnInit {
 
   ngOnInit() {
     this.rateExchangeService.getAvailableCurrencies().subscribe(data => {
-      this.currencies = data;
+      this.currencies = data; // It initializes the dropdowns with available currencies
     });
 
     this.rateExchangeService.getExchangeRate("USD", "GBP").subscribe(data => {
-      console.log(data);
+      console.log(data); // It's here just for testing, in future this will be in the calculating result function
     });
   }
 
