@@ -8,11 +8,16 @@ import { RateExchangeService } from "../services/rate-exchange.service";
 })
 export class RealTimeRateExchangeComponent implements OnInit {
   currencies: string[];
+  baseCurrency: string;
+  resultCurrency: string;
+
   constructor(private rateExchangeService: RateExchangeService) {}
 
   ngOnInit() {
     this.rateExchangeService.getAvailableCurrencies().subscribe(data => {
       this.currencies = data; // It initializes the dropdowns with available currencies
+      this.baseCurrency = this.currencies[0];
+      this.resultCurrency = this.currencies[0];
     });
 
     this.rateExchangeService.getExchangeRate("USD", "GBP").subscribe(data => {
@@ -20,7 +25,11 @@ export class RealTimeRateExchangeComponent implements OnInit {
     });
   }
 
-  selectCurrency(currency: string) {
-    console.log(currency);
+  selectBaseCurrency(currency: string) {
+    this.baseCurrency = currency;
+  }
+
+  selectResultCurrency(currency: string) {
+    this.resultCurrency = currency;
   }
 }
