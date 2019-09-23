@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-sm-5 justify-content-center">
           <div class="drop">
-            <select (change)="selectCurrency($event.target.value)" class="btn btn-outline-primary form-control" name="list"
+            <select (change)="selectBaseCurrency($event.target.value)" class="btn btn-outline-primary form-control" name="list"
               id="list">
               <option *ngFor="let currency of currencies" value={{currency}}>{{currency}}</option>
             </select>
@@ -13,7 +13,7 @@
           <span class="amount">Amount : </span>
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text">EUR</span>
+              <span class="input-group-text">{{baseCurrency}}</span>
             </div>
             <input class="form-control">
           </div>
@@ -23,7 +23,7 @@
         </div>
         <div class="col-sm-5 justify-content-center">
           <div class="drop">
-            <select (change)="selectCurrency($event.target.value)" class="btn btn-outline-primary form-control" name="list"
+            <select (change)="selectResultCurrency($event.target.value)" class="btn btn-outline-primary form-control" name="list"
               id="list">
               <option *ngFor="let currency of currencies" value={{currency}}>{{currency}}</option>
             </select>
@@ -31,7 +31,7 @@
           <span class="amount">Result : </span>
           <div class="input-group ">
             <div class="input-group-prepend">
-              <span class="input-group-text">EUR</span>
+              <span class="input-group-text">{{resultCurrency}}</span>
             </div>
             <input class="form-control">
           </div>
