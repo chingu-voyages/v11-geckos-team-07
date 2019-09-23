@@ -11,6 +11,7 @@ import { SpecificDateRateExchangeComponent } from "./specific-date-rate-exchange
 import { HomeComponent } from "./home/home.component";
 import { TeamComponent } from "./team/team.component";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,13 @@ import { HttpClientModule } from "@angular/common/http";
     HomeComponent,
     TeamComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
