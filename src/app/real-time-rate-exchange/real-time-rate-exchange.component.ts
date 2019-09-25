@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { RateExchangeService } from "../services/rate-exchange.service";
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: "app-real-time-rate-exchange",
@@ -31,5 +32,12 @@ export class RealTimeRateExchangeComponent implements OnInit {
 
   selectResultCurrency(currency: string) {
     this.resultCurrency = currency;
+  }
+
+  switchCurrency(){
+    let temp:string;
+    temp=this.baseCurrency;
+    this.baseCurrency=this.resultCurrency;
+    this.resultCurrency=temp;
   }
 }
