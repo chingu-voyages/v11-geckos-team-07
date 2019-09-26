@@ -35,4 +35,17 @@ export class RateExchangeService {
       })
     );
   }
+
+  getSpecificDateExchangeRate(
+    date: string,
+    base: string,
+    symbols: string
+  ): Observable<any> {
+    const params = new HttpParams().set("base", base).set("symbols", symbols);
+    return this.http.get<any>(`${this.url}${date}`, { params }).pipe(
+      map(data => {
+        return data.rates[symbols];
+      })
+    );
+  }
 }
