@@ -10,7 +10,15 @@ export class SpecificDateRateExchangeComponent implements OnInit {
   currencies: string[];
   baseCurrency: string;
   resultCurrency: string;
-  model;
+  rate: number;
+  amount: string;
+  result: number;
+  model = {
+    year: new Date().getFullYear(),
+    month: new Date().getMonth() + 1,
+    day: new Date().getDate()
+  };
+
   constructor(private rateExchangeService: RateExchangeService) {}
 
   ngOnInit() {
@@ -18,10 +26,6 @@ export class SpecificDateRateExchangeComponent implements OnInit {
       this.currencies = data; // It initializes the dropdowns with available currencies
       this.baseCurrency = this.currencies[0];
       this.resultCurrency = this.currencies[0];
-    });
-
-    this.rateExchangeService.getExchangeRate("USD", "GBP").subscribe(data => {
-      console.log(data); // It's here just for testing, in future this will be in the calculating result function
     });
   }
 
@@ -34,6 +38,11 @@ export class SpecificDateRateExchangeComponent implements OnInit {
   }
 
   convert() {
-    console.log(this.model); // just to verify that we get the date from the picker
+    let date = `${this.model.year}-${this.model.month}-${this.model.day}`;
+    this.rateExchangeService
+      .getSpecificDateExchangeRate(date, this.baseCurrency, this.resultCurrency)
+      .subscribe(data => {
+        this.result = this.amount ? parseInt(this.amount) * data : 0;
+      });
   }
 }
