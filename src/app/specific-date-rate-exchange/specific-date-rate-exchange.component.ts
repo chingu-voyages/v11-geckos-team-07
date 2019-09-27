@@ -39,10 +39,15 @@ export class SpecificDateRateExchangeComponent implements OnInit {
 
   convert() {
     let date = `${this.model.year}-${this.model.month}-${this.model.day}`;
+    if(this.amount){
     this.rateExchangeService
       .getSpecificDateExchangeRate(date, this.baseCurrency, this.resultCurrency)
       .subscribe(data => {
-        this.result = this.amount ? parseInt(this.amount) * data : 0;
+        this.result = parseInt(this.amount) * data ;
       });
+    }
+    else{
+      this.result = 0 ;
+    }
   }
 }
