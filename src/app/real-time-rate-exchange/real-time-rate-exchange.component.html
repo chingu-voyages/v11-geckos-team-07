@@ -42,6 +42,11 @@
           <button class="btn btn-primary" (click)="convert()">Convert</button>
         </div>
       </div>
+      <div *ngIf="result && last_updated" class="row">
+        <div class="col d-flex justify-content-start">
+          <span class="mt-2">Last updated on <b>{{last_updated}}</b></span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
