@@ -15,7 +15,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text">{{baseCurrency}}</span>
             </div>
-            <input class="form-control">
+            <input class="form-control" [(ngModel)]="amount">
           </div>
         </div>
         <div class="switch col-sm-2 justify-content-center">
@@ -33,13 +33,13 @@
             <div class="input-group-prepend">
               <span class="input-group-text">{{resultCurrency}}</span>
             </div>
-            <input class="form-control">
+            <input class="form-control" [ngModel]="result" disabled>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="convert col justify-content-center">
-          <button class="btn btn-primary">Convert</button>
+          <button class="btn btn-primary" (click)="convert()">Convert</button>
         </div>
       </div>
     </div>

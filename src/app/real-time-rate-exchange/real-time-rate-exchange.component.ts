@@ -11,6 +11,9 @@ export class RealTimeRateExchangeComponent implements OnInit {
   currencies: string[];
   baseCurrency: string;
   resultCurrency: string;
+  amount: string;
+  result: number;
+  last_updated:string;
 
   constructor(private rateExchangeService: RateExchangeService) {}
 
@@ -39,5 +42,16 @@ export class RealTimeRateExchangeComponent implements OnInit {
     temp=this.baseCurrency;
     this.baseCurrency=this.resultCurrency;
     this.resultCurrency=temp;
+  }
+
+  convert(){
+    if(this.amount){
+      this.rateExchangeService.getExchangeRate(this.baseCurrency,this.resultCurrency).subscribe(data=>{
+        this.result=data.rate* parseInt(this.amount);
+        this.last_updated=data.date;
+      })
+    }else{
+      this.result=0;
+    }
   }
 }
