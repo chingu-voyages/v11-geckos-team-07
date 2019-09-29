@@ -36,4 +36,11 @@ export class SpecificDateRateExchangeComponent implements OnInit {
   convert() {
     console.log(this.model); // just to verify that we get the date from the picker
   }
+
+  switchCurrency(){
+    let temp:string;
+    temp=this.baseCurrency;
+    this.baseCurrency=this.resultCurrency;
+    this.resultCurrency=temp;
+  }
 }
