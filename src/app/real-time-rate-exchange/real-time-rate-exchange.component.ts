@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { RateExchangeService } from "../services/rate-exchange.service";
 import { stringify } from "@angular/compiler/src/util";
 
@@ -8,7 +8,7 @@ import { stringify } from "@angular/compiler/src/util";
   styleUrls: ["./real-time-rate-exchange.component.css"]
 })
 export class RealTimeRateExchangeComponent implements OnInit {
-  currencies: string[];
+  @Input() currencies: string[];
   baseCurrency: string;
   resultCurrency: string;
   amount: string;
@@ -18,11 +18,8 @@ export class RealTimeRateExchangeComponent implements OnInit {
   constructor(private rateExchangeService: RateExchangeService) {}
 
   ngOnInit() {
-    this.rateExchangeService.getAvailableCurrencies().subscribe(data => {
-      this.currencies = data; // It initializes the dropdowns with available currencies
-      this.baseCurrency = this.currencies[0];
-      this.resultCurrency = this.currencies[0];
-    });
+    this.baseCurrency = this.currencies[0];
+    this.resultCurrency = this.currencies[0];
   }
 
   selectBaseCurrency(currency: string) {

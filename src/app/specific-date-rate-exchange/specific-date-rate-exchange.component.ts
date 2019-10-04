@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { RateExchangeService } from "../services/rate-exchange.service";
 
 @Component({
@@ -7,7 +7,7 @@ import { RateExchangeService } from "../services/rate-exchange.service";
   styleUrls: ["./specific-date-rate-exchange.component.css"]
 })
 export class SpecificDateRateExchangeComponent implements OnInit {
-  currencies: string[];
+  @Input() currencies: string[];
   baseCurrency: string;
   resultCurrency: string;
   rate: number;
@@ -22,11 +22,8 @@ export class SpecificDateRateExchangeComponent implements OnInit {
   constructor(private rateExchangeService: RateExchangeService) {}
 
   ngOnInit() {
-    this.rateExchangeService.getAvailableCurrencies().subscribe(data => {
-      this.currencies = data; // It initializes the dropdowns with available currencies
-      this.baseCurrency = this.currencies[0];
-      this.resultCurrency = this.currencies[0];
-    });
+    this.baseCurrency = this.currencies[0];
+    this.resultCurrency = this.currencies[0];
   }
 
   selectBaseCurrency(currency: string) {
@@ -39,22 +36,25 @@ export class SpecificDateRateExchangeComponent implements OnInit {
 
   convert() {
     let date = `${this.model.year}-${this.model.month}-${this.model.day}`;
-    if(this.amount){
-    this.rateExchangeService
-      .getSpecificDateExchangeRate(date, this.baseCurrency, this.resultCurrency)
-      .subscribe(data => {
-        this.result = parseInt(this.amount) * data ;
-      });
-    }
-    else{
-      this.result = 0 ;
+    if (this.amount) {
+      this.rateExchangeService
+        .getSpecificDateExchangeRate(
+          date,
+          this.baseCurrency,
+          this.resultCurrency
+        )
+        .subscribe(data => {
+          this.result = parseInt(this.amount) * data;
+        });
+    } else {
+      this.result = 0;
     }
   }
 
-  switchCurrency(){
-    let temp:string;
-    temp=this.baseCurrency;
-    this.baseCurrency=this.resultCurrency;
-    this.resultCurrency=temp;
+  switchCurrency() {
+    let temp: string;
+    temp = this.baseCurrency;
+    this.baseCurrency = this.resultCurrency;
+    this.resultCurrency = temp;
   }
 }
