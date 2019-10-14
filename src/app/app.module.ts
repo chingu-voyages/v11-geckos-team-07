@@ -9,7 +9,6 @@ import { RealTimeRateExchangeComponent } from "./real-time-rate-exchange/real-ti
 import { FooterComponent } from "./footer/footer.component";
 import { SpecificDateRateExchangeComponent } from "./specific-date-rate-exchange/specific-date-rate-exchange.component";
 import { HomeComponent } from "./home/home.component";
-import { TeamComponent } from "./team/team.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 
@@ -20,8 +19,7 @@ import { FormsModule } from "@angular/forms";
     RealTimeRateExchangeComponent,
     FooterComponent,
     SpecificDateRateExchangeComponent,
-    HomeComponent,
-    TeamComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
